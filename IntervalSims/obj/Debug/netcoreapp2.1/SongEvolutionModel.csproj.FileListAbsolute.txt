@@ -1,0 +1,14 @@
+C:\Users\karar\Documents\C#\SongModelTest\obj\Debug\netcoreapp2.1\SongEvolutionModel.csprojAssemblyReference.cache
+C:\Users\karar\Documents\C#\SongModelTest\obj\Debug\netcoreapp2.1\SongEvolutionModel.csproj.CoreCompileInputs.cache
+C:\Users\karar\Documents\C#\SongModelTest\obj\Debug\netcoreapp2.1\SongEvolutionModel.AssemblyInfoInputs.cache
+C:\Users\karar\Documents\C#\SongModelTest\obj\Debug\netcoreapp2.1\SongEvolutionModel.AssemblyInfo.cs
+C:\Users\karar\Documents\C#\SongModelTest\bin\Debug\netcoreapp2.1\SongEvolutionModel.deps.json
+C:\Users\karar\Documents\C#\SongModelTest\bin\Debug\netcoreapp2.1\SongEvolutionModel.runtimeconfig.json
+C:\Users\karar\Documents\C#\SongModelTest\bin\Debug\netcoreapp2.1\SongEvolutionModel.runtimeconfig.dev.json
+C:\Users\karar\Documents\C#\SongModelTest\bin\Debug\netcoreapp2.1\SongEvolutionModel.dll
+C:\Users\karar\Documents\C#\SongModelTest\bin\Debug\netcoreapp2.1\SongEvolutionModel.pdb
+C:\Users\karar\Documents\C#\SongModelTest\bin\Debug\netcoreapp2.1\SongEvolutionModelLibrary.dll
+C:\Users\karar\Documents\C#\SongModelTest\bin\Debug\netcoreapp2.1\SongEvolutionModelLibrary.pdb
+C:\Users\karar\Documents\C#\SongModelTest\obj\Debug\netcoreapp2.1\SongEvolutionModel.csproj.CopyComplete
+C:\Users\karar\Documents\C#\SongModelTest\obj\Debug\netcoreapp2.1\SongEvolutionModel.dll
+C:\Users\karar\Documents\C#\SongModelTest\obj\Debug\netcoreapp2.1\SongEvolutionModel.pdb

@@ -1,0 +1,4 @@
+C:\Users\karar\Documents\C#\SongModelTest\obj\Debug\netcoreapp2.0\SongEvolutionModel.csprojAssemblyReference.cache
+C:\Users\karar\Documents\C#\SongModelTest\obj\Debug\netcoreapp2.0\SongEvolutionModel.csproj.CoreCompileInputs.cache
+C:\Users\karar\Documents\C#\SongModelTest\obj\Debug\netcoreapp2.0\SongEvolutionModel.AssemblyInfoInputs.cache
+C:\Users\karar\Documents\C#\SongModelTest\obj\Debug\netcoreapp2.0\SongEvolutionModel.AssemblyInfo.cs
