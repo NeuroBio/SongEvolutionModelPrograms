@@ -1,4 +1,0 @@
-IntervalSims/bin/*
-IntervalSims/Obj/*
-IntervalSims/.vscode/*
-IntervalSims/.vs/*
