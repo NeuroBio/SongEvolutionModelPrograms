@@ -17,7 +17,7 @@ namespace SongEvolutionModel
             //do not check the distributions.
             Control.CheckDistributionParameters = false;
 
-            String ParamPath="C:/Users/karar/Documents/R/AgentBasedModel/Comparison/";
+            String ParamPath="D:/Documents/R/AgentBasedModel/Comparison/";
             String OutputPath="C:/Users/Karar/Desktop/Output";
             String[] ParamFiles = Directory.GetFiles(ParamPath);
 
