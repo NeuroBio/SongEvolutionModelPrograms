@@ -17,10 +17,10 @@ namespace SongEvolutionModel
             //do not check the distributions.
             Control.CheckDistributionParameters = false;
 
-            String ParamPath="C:/Users/Karar/Desktop/OverviewSweep/";
-            String OutputPath="C:/Users/karar/Desktop/PTest/Out/";
-            //String ParamPath = args[0];
-            //String OutputPath = args[1];
+            //String ParamPath="C:/Users/Karar/Desktop/OverviewSweep/";
+            //String OutputPath="C:/Users/karar/Desktop/PTest/Out/";
+            String ParamPath = args[0];
+            String OutputPath = args[1];
             int MaxParallel = args.Length>2?
                             System.Convert.ToInt32(args[2]):4;
             int Frequency = args.Length>3?
@@ -32,7 +32,7 @@ namespace SongEvolutionModel
             opt.MaxDegreeOfParallelism = MaxParallel;
             
 
-            String[] ParamFiles = new String[] {"C:/Users/Karar/Desktop/OverviewSweep/84.txt"};//Directory.GetFiles(ParamPath);
+            String[] ParamFiles = Directory.GetFiles(ParamPath);
             
             //string i2 = ParamFiles[0];
             Parallel.ForEach(ParamFiles, opt, (FileName) => Run(FileName, Repeats, Frequency, OutputPath));
