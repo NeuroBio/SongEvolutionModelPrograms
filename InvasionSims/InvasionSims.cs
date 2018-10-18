@@ -18,13 +18,12 @@ namespace InvasionSimulation
             Console.WriteLine("Start");
             //do not check the distributions.
             Control.CheckDistributionParameters = false;
-
-            String ParamPath="C:/Users/Karar/Desktop/PTest/";
-            String OutputPath="C:/Users/karar/Desktop/PTest/Out/";
-            float InvaderStat = .25f;
-            //String ParamPath = args[0];
-            //String OutputPath = args[1];
-            //float InvaderStat = float.Parse(args[2], CultureInfo.InvariantCulture);
+            //string ParamPath="C:/Users/karar/Desktop/LearningInvasion/Closed";
+            //string OutputPath="C:/Users/karar/Desktop/LearningInvasion/Closed/ClosedEnd";
+            //float InvaderStat = .25f;
+            string ParamPath = args[0];
+            string OutputPath = args[1];
+            float InvaderStat = float.Parse(args[2], CultureInfo.InvariantCulture);
             int NumInvaders = args.Length>3?
                             System.Convert.ToInt32(args[3]):1;
             int MaxParallel = args.Length>4?
