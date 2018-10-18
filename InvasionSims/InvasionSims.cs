@@ -1,13 +1,12 @@
 ﻿using System;
 using System.IO;
 using System.Diagnostics;
-//using System.Threading;
 using System.Threading.Tasks;
 using MathNet.Numerics;
-using SongEvolutionModelLibrary;
 using System.Text;
-using CsvHelper;
 using System.Globalization;
+using SongEvolutionModelLibrary;
+
 
 namespace InvasionSimulation
 {  
@@ -35,31 +34,26 @@ namespace InvasionSimulation
             int BurnIn = args.Length>5?
                             System.Convert.ToInt32(args[5]):500;
             
+            //Get files and un sims in parallel
             ParallelOptions opt = new ParallelOptions();
             opt.MaxDegreeOfParallelism = MaxParallel;
-            
+            string[] ParamFiles = Utils.GetValidParams(ParamPath);
+            Parallel.ForEach(ParamFiles, opt, (FileName) => Run(FileName, Repeats, InvaderStat,
+                                                                    NumInvaders, BurnIn, OutputPath));
 
-            String[] ParamFiles = Directory.GetFiles(ParamPath);
-            
-            //string i2 = ParamFiles[0];
-            Parallel.ForEach(ParamFiles, opt, (FileName) => Run(FileName, Repeats, InvaderStat, NumInvaders, BurnIn, OutputPath));
             Console.WriteLine(Global.ElapsedMilliseconds);
             Console.WriteLine("All simulations completed.");
         }
 
-        static void Run(String fileName, int repeats, float invaderStat, int numInvaders, int burnIn, String outputPath){
+        static void Run(string fileName, int repeats, float invaderStat, int numInvaders, int burnIn, string outputPath){
             Stopwatch Local = new Stopwatch();
             Local.Start();
             Console.WriteLine(fileName);
 
-            //Prepare naming Scheme
-            fileName.Replace("\\","/");
-            String[] Tag = fileName.Split("/");
-            Tag = Tag[Tag.Length-1].Split(".");
+            //Prepare data holders
             StringBuilder Output = new StringBuilder();
-            int[] Steps = new int[repeats];
-            float[] TraitAve = new float[repeats];
             Simulations.InvasionData Temp = new Simulations.InvasionData();
+
             //Get Parameters and run appropriate Simulation
             SimParams Par = new SimParams(reload:true, path: fileName);
             for(int j=0;j<repeats;j++){
@@ -67,6 +61,9 @@ namespace InvasionSimulation
                 Output.Append(Temp.Steps.ToString());
                 Output.AppendLine(string.Format(",{0}",Temp.TraitAve));
             }
+
+            //Save data
+            string Tag = Utils.GetTag(fileName);
             File.WriteAllText(outputPath+"/"+Tag+"-"+invaderStat+".csv", Output.ToString());
             Console.WriteLine("{0}-{1}", fileName, Local.ElapsedMilliseconds);
         }

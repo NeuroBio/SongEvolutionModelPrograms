@@ -1,7 +1,5 @@
 ﻿using System;
-using System.IO;
 using System.Diagnostics;
-//using System.Threading;
 using System.Threading.Tasks;
 using MathNet.Numerics;
 using SongEvolutionModelLibrary;
@@ -17,10 +15,8 @@ namespace SongEvolutionModel
             //do not check the distributions.
             Control.CheckDistributionParameters = false;
 
-            //String ParamPath="C:/Users/Karar/Desktop/OverviewSweep/";
-            //String OutputPath="C:/Users/karar/Desktop/PTest/Out/";
-            String ParamPath = args[0];
-            String OutputPath = args[1];
+            string ParamPath = args[0];
+            string OutputPath = args[1];
             int MaxParallel = args.Length>2?
                             System.Convert.ToInt32(args[2]):4;
             int Frequency = args.Length>3?
@@ -28,38 +24,34 @@ namespace SongEvolutionModel
             int Repeats = args.Length>4?
                             System.Convert.ToInt32(args[4]):50;
             
+            //Get files and un sims in parallel
             ParallelOptions opt = new ParallelOptions();
             opt.MaxDegreeOfParallelism = MaxParallel;
-            
-
-            String[] ParamFiles = Directory.GetFiles(ParamPath);
-            
-            //string i2 = ParamFiles[0];
+            string[] ParamFiles = Utils.GetValidParams(ParamPath);
             Parallel.ForEach(ParamFiles, opt, (FileName) => Run(FileName, Repeats, Frequency, OutputPath));
+            
             Console.WriteLine(Global.ElapsedMilliseconds);
             Console.WriteLine("All simulations completed.");
         }
 
-        static void Run(String FileName, int Repeats, int Frequency, String OutputPath){
+        static void Run(string fileName, int repeats, int frequency, string outputPath){
             Stopwatch Local = new Stopwatch();
             Local.Start();
-            Console.WriteLine(FileName);
-
-            //Prepare naming Scheme
-            FileName.Replace("\\","/");
-            String[] Tag = FileName.Split("/");
-            Tag = Tag[Tag.Length-1].Split(".");
+            Console.WriteLine(fileName);
 
             //Get Parameters and run appropriate Simulation
-            SimParams Par = new SimParams(reload:true, path: FileName);
+            SimParams Par = new SimParams(reload:true, path: fileName);
             WriteData Temp;  
-            WriteData Full = Simulations.Interval(Par, Frequency, false);
-            for(int j=1;j<Repeats;j++){
-                Temp = Simulations.Interval(Par, Frequency, false);
+            WriteData Full = Simulations.Interval(Par, frequency, false);
+            for(int j=1;j<repeats;j++){
+                Temp = Simulations.Interval(Par, frequency, false);
                 Full.ConCat(Temp, Par);
             }
-            Full.Output(Par,OutputPath,Tag[0], true);
-            Console.WriteLine("{0}-{1}", FileName, Local.ElapsedMilliseconds);
+
+            //Save data
+            string Tag = Utils.GetTag(fileName);
+            Full.Output(Par, outputPath, Tag, true);
+            Console.WriteLine("{0}-{1}", fileName, Local.ElapsedMilliseconds);
         }
     }
 }
