@@ -18,6 +18,7 @@ namespace InvasionSimulation
             Console.WriteLine("Start");
             //do not check the distributions.
             Control.CheckDistributionParameters = false;
+            
             //string ParamPath="C:/Users/karar/Desktop/LearningInvasion/Closed";
             //string OutputPath="C:/Users/karar/Desktop/LearningInvasion/Closed/ClosedEnd";
             //float InvaderStat = .25f;
@@ -30,8 +31,8 @@ namespace InvasionSimulation
                             System.Convert.ToInt32(args[4]):4;
             int Repeats = args.Length>5?
                             System.Convert.ToInt32(args[5]):50;
-            int BurnIn = args.Length>5?
-                            System.Convert.ToInt32(args[5]):500;
+            int BurnIn = args.Length>6?
+                            System.Convert.ToInt32(args[6]):500;
             
             //Get files and un sims in parallel
             ParallelOptions opt = new ParallelOptions();
