@@ -19,13 +19,10 @@ namespace SongEvolutionModel
 
             String ParamPath="D:/Documents/R/AgentBasedModel/Comparison/";
             String OutputPath="C:/Users/Karar/Desktop/Output";
-            String[] ParamFiles = Directory.GetFiles(ParamPath);
+            String[] ParamFiles = Utils.GetValidParams(ParamPath);
 
             //Prepare naming Scheme
-            ParamFiles[0].Replace("\\\\","/");
-            String[] Tag = ParamFiles[0].Split("/");
-            Tag = Tag[Tag.Length-1].Split(".");
-            Tag[0] = "";
+            string Tag = Utils.GetTag(ParamFiles[0]);
 
             SimParams Par = new SimParams(reload:true, path: ParamFiles[0]);
             WriteData Full = Simulations.Basic(Par);
@@ -35,7 +32,7 @@ namespace SongEvolutionModel
                 Temp = Simulations.Interval(Par, 200, false);
                 Full.ConCat(Temp, Par);
             }*/
-            Full.Output(Par,OutputPath,Tag[0], true);
+            Full.Output(Par,OutputPath,Tag, true);
 
             Console.WriteLine(Global.ElapsedMilliseconds);
             Console.WriteLine("All simulations completed.");

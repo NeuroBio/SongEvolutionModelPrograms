@@ -12,22 +12,22 @@ namespace LearningInvasion
             //args[1] = "C:/Users/karar/Desktop/InvasionParams/";
             //args[0] = "D:/Documents/C#/SongEvolutionModelPrograms/InvasionSims/bin/Release/netcoreapp2.1/";
             //InvasionSet("Closed", "1", "1", "C:/Users/karar/Desktop/LearningInvasion/Closed/", "D:/Documents/C#/SongEvolutionModelPrograms/InvasionSims/bin/Release/netcoreapp2.1/", 20, 10);
-            InvasionSet("Closed", "1", "1", args[1], args[0], 20, 1000);
-            InvasionSet("Closed", "1", "4", args[1], args[0], 20, 1000);
-            InvasionSet("Closed", "2", "1", args[1], args[0], 20, 1000);
-            InvasionSet("Closed", "2", "4", args[1], args[0], 20, 1000);
+            InvasionSet("Closed", "1", "1", args[1], args[0], 20, 1000, 1000);
+            InvasionSet("Closed", "1", "4", args[1], args[0], 20, 1000, 1000);
+            InvasionSet("Closed", "2", "1", args[1], args[0], 20, 1000, 1000);
+            InvasionSet("Closed", "2", "4", args[1], args[0], 20, 1000, 1000);
 
             //Delyaed Closed Runs
-            InvasionSet("DelayedClosed", ".25", "1", args[1], args[0], 20, 1000);
-            InvasionSet("DelayedClosed", ".25", "4", args[1], args[0], 20, 1000);
-            InvasionSet("DelayedClosed", "2", "1", args[1], args[0], 20, 1000);
-            InvasionSet("DelayedClosed", "2", "4", args[1], args[0], 20, 1000);
+            InvasionSet("DelayedClosed", ".25", "1", args[1], args[0], 20, 1000, 1000);
+            InvasionSet("DelayedClosed", ".25", "4", args[1], args[0], 20, 1000, 1000);
+            InvasionSet("DelayedClosed", "2", "1", args[1], args[0], 20, 1000, 1000);
+            InvasionSet("DelayedClosed", "2", "4", args[1], args[0], 20, 1000, 1000);
 
             //Open Runs
-            InvasionSet("Open", ".25", "1", args[1], args[0], 20, 1000);
-            InvasionSet("Open", ".25", "4", args[1], args[0], 20, 1000);
-            InvasionSet("Open", "1", "1", args[1], args[0], 20, 1000);
-            InvasionSet("Open", "1", "4", args[1], args[0], 20, 1000);
+            InvasionSet("Open", ".25", "1", args[1], args[0], 20, 1000, 1000);
+            InvasionSet("Open", ".25", "4", args[1], args[0], 20, 1000, 1000);
+            InvasionSet("Open", "1", "1", args[1], args[0], 20, 1000, 1000);
+            InvasionSet("Open", "1", "4", args[1], args[0], 20, 1000, 1000);
         }
         static void InvasionSet(string type, string invadeStat, string numInvade,
                                 string paramsFolder, string programFolder, int maxPar, int repeats){
