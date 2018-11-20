@@ -45,7 +45,7 @@ namespace SongEvolutionModel
             WriteData Full = Simulations.Interval(Par, frequency, false);
             for(int j=1;j<repeats;j++){
                 Temp = Simulations.Interval(Par, frequency, false);
-                Full.ConCat(Temp, Par);
+                Full.ConCat(Par, Temp);
             }
 
             //Save data
