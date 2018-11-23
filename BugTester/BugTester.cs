@@ -25,6 +25,10 @@ namespace SongEvolutionModel
             string Tag = Utils.GetTag(ParamFiles[0]);
 
             SimParams Par = new SimParams(reload:true, path: ParamFiles[0]);
+            //int x = 1000000;
+            //float[] sampler = new float[6]{.8f,.8f,.9f,.5f,.4f,.2f};
+            //int[] lol = Par.RandomSampleUnequal(sampler,x,true);
+
             WriteData Full = Simulations.Basic(Par);
             /* WriteData Temp;  
             WriteData Full = Simulations.Interval(Par, 200, false); 
