@@ -8,10 +8,6 @@ namespace LearningInvasion
     {
         static void Main(String[] args){
             //Closed Runs
-            //string[] args = new string[2];
-            //args[1] = "C:/Users/karar/Desktop/InvasionParams/";
-            //args[0] = "D:/Documents/C#/SongEvolutionModelPrograms/InvasionSims/bin/Release/netcoreapp2.1/";
-            //InvasionSet("Closed", "1", "1", "C:/Users/karar/Desktop/LearningInvasion/Closed/", "D:/Documents/C#/SongEvolutionModelPrograms/InvasionSims/bin/Release/netcoreapp2.1/", 20, 10);
             InvasionSet("Closed", "1", "1", args[1], args[0], 20, 1000, 500);
             InvasionSet("Closed", "1", "4", args[1], args[0], 20, 1000, 500);
             InvasionSet("Closed", "2", "1", args[1], args[0], 20, 1000, 500);
@@ -29,14 +25,14 @@ namespace LearningInvasion
             InvasionSet("Open", "1", "1", args[1], args[0], 20, 1000, 500);
             InvasionSet("Open", "1", "4", args[1], args[0], 20, 1000, 500);
         }
-        static void InvasionSet(string type, string invadeStat, string numInvade,
+        static void InvasionSet(string windowType, string invadeStat, string numInvade,
                                 string paramsFolder, string programFolder, int maxPar, int repeats, int burnIn){
             string ProgramPath = Path.Combine(programFolder,"InvasionSims.dll");
-            string ParamPath = Path.Combine(paramsFolder+type);
-            string OutputPath = Path.Combine(ParamPath,string.Format(type+"-"+invadeStat+"-"+numInvade));
+            string ParamPath = Path.Combine(paramsFolder+windowType);
+            string OutputPath = Path.Combine(ParamPath,string.Format(windowType+"-"+invadeStat+"-"+numInvade));
             Directory.CreateDirectory(OutputPath);
-            string SubArgs = string.Format("{0} {1} {2} {3} {4} {5} {6} {7}", ProgramPath, ParamPath,
-                                                                    OutputPath, invadeStat, numInvade, maxPar, repeats, burnIn);
+            string SubArgs = string.Format("{0} {1} {2} {3} {4} {5} {6} {7} {8}", ProgramPath, ParamPath,
+                                                                    OutputPath, "Learning", invadeStat, numInvade, maxPar, repeats, burnIn);
          
             //Set up process and run
             Process ClosedtoDelayed = new Process();
