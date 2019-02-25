@@ -54,7 +54,7 @@ namespace InvasionSimulation
             //Get Parameters and run appropriate Simulation
             SimParams Par = new SimParams(reload:true, path: fileName);
             for(int j=0;j<repeats;j++){
-                Temp = Simulations.InvasionLrnThrsh(Par, type, invaderStat, numInvaders, burnIn);
+                Temp = Simulations.Invasion(Par, type, invaderStat, numInvaders, burnIn);
                 Output.Append(Temp.Steps.ToString());
                 Output.AppendLine(string.Format(",{0}",Temp.TraitAve));
             }
