@@ -18,7 +18,7 @@ namespace SongEvolutionModel
             Control.CheckDistributionParameters = false;
 
             String ParamPath="D:/Documents/R/AgentBasedModel/Comparison/";
-            String OutputPath="C:/Users/Karar/Desktop/Output";
+            String OutputPath="D:/Documents/R/AgentBasedModel/Comparison/C/";
             String[] ParamFiles = Utils.GetValidParams(ParamPath);
 
             //Prepare naming Scheme
