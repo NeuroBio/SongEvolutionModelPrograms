@@ -54,6 +54,7 @@ namespace SongEvolutionModel
         bool chanForAll, bool chanInvAll){
             Stopwatch Local = new Stopwatch();
             Local.Start();
+            Console.WriteLine("Begin-{0}", fileName);
             //Get Parameters and run appropriate Simulation
             SimParams Par = new SimParams(reload:true, path: fileName);
             WriteData Temp;
